@@ -1,0 +1,44 @@
+.carousel-wrapper {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.carousel {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 6000px;
+}
+
+.carousel-inner {
+	display: flex;
+}
+
+.carousel-controls {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	z-index: 9999;
+	width: 100%;
+}
+
+.carousel-item {
+	padding: 0;
+	width: 100vw;
+	height: 300px;
+	background-color: crimson;
+	color: #fff;
+	font-size: 50px;
+	line-height: 300px;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 6000px;
+}

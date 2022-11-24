@@ -1,0 +1,19 @@
+{
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug server",
+			"program": "${workspaceFolder}/server/index.js",
+			"preLaunchTask": "task - build:server:local",
+			"resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
+			"killBehavior": "forceful",
+			"console": "integratedTerminal",
+			"smartStep": true,
+			"internalConsoleOptions": "openOnSessionStart",
+			"outFiles": ["${workspaceFolder}/server/**/*.js"]
+		}
+	]
+}

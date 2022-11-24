@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"outDir": "./",
+		"baseUrl": "./",
+		"strict": true,
+		"moduleResolution": "node",
+		"module": "CommonJS",
+		"target": "ES2017",
+		"lib": ["ES2017"],
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"sourceMap": true
+	},
+	"files": ["../node_modules/@types/node/index.d.ts", "../node_modules/@types/express/index.d.ts"],
+	"include": ["./**/*.ts"],
+	"exclude": ["../node_modules", "**/*.spec.ts"]
+}

@@ -1,0 +1,64 @@
+{
+	"root": true,
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"prettier",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:css/recommended",
+		"plugin:markdown/recommended",
+		"plugin:json/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module",
+		"project": "tsconfig.eslint.json"
+	},
+	"plugins": ["@typescript-eslint", "import", "html", "css", "json", "markdown"],
+	"rules": {
+		"@typescript-eslint/no-shadow": ["error"],
+		"@typescript-eslint/no-useless-constructor": 2,
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"import/no-unresolved": "error",
+		"import/order": "off",
+		// temporary disabling
+		"no-unused-vars": "off",
+		"no-undef": "off",
+		// temporary disabling
+		"@typescript-eslint/no-namespace": "off",
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"jsx": "never",
+				"ts": "never",
+				"tsx": "never"
+			}
+		]
+	},
+	"settings": {
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true
+			}
+		}
+	},
+	"ignorePatterns": [
+		"dist/**/*",
+		".eslintrc.json",
+		".prettierrc.json",
+		"scripts/**/*.js",
+		"server/**/*.js",
+		"setup-jest.ts",
+		"jest-global-mocks.ts",
+		"projects/**/*.json",
+		"jest.config.js"
+	]
+}

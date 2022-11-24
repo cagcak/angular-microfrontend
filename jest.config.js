@@ -1,0 +1,33 @@
+module.exports = {
+	clearMocks: true,
+	collectCoverage: true,
+	collectCoverageFrom: [
+		'**/*.ts',
+		'!**/*/bootstrap.ts',
+		'!**/*/main.ts',
+		'!**/*/polyfills.ts',
+		'!**/*/environment.*.ts',
+		'!setup-jest.ts',
+		'!jest-global-mocks.ts',
+		'!**/build/**',
+		'!**/node_modules/**',
+		'!**/vendor/**',
+	],
+	coverageDirectory: 'coverage',
+	coveragePathIgnorePatterns: ['/node_modules/'],
+	testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec).[tj]s?(x)'],
+	projects: [
+		'<rootDir>/projects/app-shell',
+		'<rootDir>/projects/mf-header',
+		'<rootDir>/projects/mf-footer',
+		'<rootDir>/projects/mf-content',
+		'<rootDir>/server',
+	],
+	testPathIgnorePatterns: [
+		'<rootDir>/node_modules/',
+		'<rootDir>/coverage/',
+		'<rootDir>/dist/',
+		'<rootDir>/e2e/',
+		'<rootDir>/projects/*.(js|scss|json)',
+	],
+};

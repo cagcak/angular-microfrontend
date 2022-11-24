@@ -1,0 +1,15 @@
+<div class="image-gallery-container">
+	<div *ngIf="items.length" class="container">
+		<app-carousel>
+			<ng-container *ngFor="let item of items">
+				<div *appCarouselItem class="item">{{ item.title }}</div>
+			</ng-container>
+		</app-carousel>
+	</div>
+</div>
+
+<div *ngIf="products.length" class="products-container">
+	<ng-container *ngFor="let product of products">
+		<app-product *ngIf="product" [product]="product"></app-product>
+	</ng-container>
+</div>

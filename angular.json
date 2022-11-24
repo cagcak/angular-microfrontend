@@ -1,0 +1,395 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"cli": {
+		"packageManager": "yarn",
+		"analytics": false
+	},
+	"newProjectRoot": "projects",
+	"projects": {
+		"app-shell": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/app-shell",
+			"sourceRoot": "projects/app-shell/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/app-shell",
+						"index": "projects/app-shell/src/index.html",
+						"main": "projects/app-shell/src/main.ts",
+						"polyfills": "projects/app-shell/src/polyfills.ts",
+						"tsConfig": "projects/app-shell/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": ["projects/app-shell/src/favicon.ico", "projects/app-shell/src/assets"],
+						"styles": ["projects/app-shell/src/styles.scss", "theme.scss"],
+						"scripts": [],
+						"extraWebpackConfig": "projects/app-shell/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "1mb",
+									"maximumError": "2mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/app-shell/src/environments/environment.ts",
+									"with": "projects/app-shell/src/environments/environment.prod.ts"
+								}
+							],
+							"index": {
+								"input": "projects/app-shell/src/index.production.html",
+								"output": "index.html"
+							},
+							"outputHashing": "none",
+							"extraWebpackConfig": "projects/app-shell/webpack.prod.config.js"
+						},
+						"development": {
+							"index": {
+								"input": "projects/app-shell/src/index.html",
+								"output": "index.html"
+							},
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "app-shell:build:production",
+							"extraWebpackConfig": "projects/app-shell/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "app-shell:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/app-shell/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "app-shell:build",
+						"extraWebpackConfig": "projects/app-shell/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {
+						"jestConfig": ["projects/app-shell/jest.config.js"],
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"mf-header": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mf-header",
+			"sourceRoot": "projects/mf-header/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mf-header",
+						"index": "projects/mf-header/src/index.html",
+						"main": "projects/mf-header/src/main.ts",
+						"polyfills": "projects/mf-header/src/polyfills.ts",
+						"tsConfig": "projects/mf-header/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": ["projects/mf-header/src/favicon.ico", "projects/mf-header/src/assets"],
+						"styles": ["projects/mf-header/src/styles.scss", "theme.scss"],
+						"scripts": [],
+						"extraWebpackConfig": "projects/mf-header/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "1mb",
+									"maximumError": "2mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/mf-header/src/environments/environment.ts",
+									"with": "projects/mf-header/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "none",
+							"extraWebpackConfig": "projects/mf-header/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "mf-header:build:production",
+							"extraWebpackConfig": "projects/mf-header/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "mf-header:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/mf-header/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "mf-header:build",
+						"extraWebpackConfig": "projects/mf-header/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {
+						"jestConfig": ["projects/mf-header/jest.config.js"],
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"mf-content": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mf-content",
+			"sourceRoot": "projects/mf-content/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mf-content",
+						"index": "projects/mf-content/src/index.html",
+						"main": "projects/mf-content/src/main.ts",
+						"polyfills": "projects/mf-content/src/polyfills.ts",
+						"tsConfig": "projects/mf-content/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": ["projects/mf-content/src/favicon.ico", "projects/mf-content/src/assets"],
+						"styles": ["projects/mf-content/src/styles.scss", "theme.scss"],
+						"scripts": [],
+						"extraWebpackConfig": "projects/mf-content/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "1mb",
+									"maximumError": "2mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/mf-content/src/environments/environment.ts",
+									"with": "projects/mf-content/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "none",
+							"extraWebpackConfig": "projects/mf-content/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "mf-content:build:production",
+							"extraWebpackConfig": "projects/mf-content/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "mf-content:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/mf-content/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "mf-content:build",
+						"extraWebpackConfig": "projects/mf-content/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {
+						"jestConfig": ["projects/mf-content/jest.config.js"],
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"mf-footer": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mf-footer",
+			"sourceRoot": "projects/mf-footer/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mf-footer",
+						"index": "projects/mf-footer/src/index.html",
+						"main": "projects/mf-footer/src/main.ts",
+						"polyfills": "projects/mf-footer/src/polyfills.ts",
+						"tsConfig": "projects/mf-footer/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": ["projects/mf-footer/src/favicon.ico", "projects/mf-footer/src/assets"],
+						"styles": ["projects/mf-footer/src/styles.scss", "theme.scss"],
+						"scripts": [],
+						"extraWebpackConfig": "projects/mf-footer/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "1mb",
+									"maximumError": "2mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/mf-footer/src/environments/environment.ts",
+									"with": "projects/mf-footer/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "none",
+							"extraWebpackConfig": "projects/mf-footer/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "mf-footer:build:production",
+							"extraWebpackConfig": "projects/mf-footer/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "mf-footer:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4203,
+						"publicHost": "http://localhost:4203",
+						"extraWebpackConfig": "projects/mf-footer/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "mf-footer:build",
+						"extraWebpackConfig": "projects/mf-footer/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {
+						"jestConfig": ["projects/mf-footer/jest.config.js"],
+						"passWithNoTests": true
+					}
+				}
+			}
+		}
+	}
+}

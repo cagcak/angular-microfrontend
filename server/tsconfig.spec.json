@@ -1,0 +1,9 @@
+{
+	"extends": "./tsconfig.server.json",
+	"compilerOptions": {
+		"outDir": "../../out-tsc/spec",
+		"types": ["jest"]
+	},
+	"files": ["production-server.ts"],
+	"include": ["./**/*.spec.ts", "./**/*.d.ts"]
+}

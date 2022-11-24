@@ -1,0 +1,11 @@
+{
+	"mf-header": {
+		"remoteEntry": "http://localhost:3001/remoteEntry.js"
+	},
+	"mf-content": {
+		"remoteEntry": "http://localhost:3002/remoteEntry.js"
+	},
+	"mf-footer": {
+		"remoteEntry": "http://localhost:3003/remoteEntry.js"
+	}
+}

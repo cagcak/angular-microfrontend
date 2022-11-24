@@ -1,0 +1,30 @@
+{
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.tabSize": 4,
+	"editor.formatOnSave": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"jestrunner.configPath": "jest.config.js",
+	"jestrunner.jestPath": "node_modules/.bin/jest",
+	"jestrunner.runOptions": ["--runInBand", "--coverage=no"],
+	"jestrunner.jestCommand": "export TS_JEST_DISABLE_VER_CHECKER=true && node node_modules/.bin/jest",
+	"javascript.suggestionActions.enabled": false,
+	"debug.javascript.autoAttachFilter": "always",
+	"debug.javascript.autoAttachSmartPattern": [
+		"${workspaceFolder}/scripts/**",
+		"!**/node_modules/**"
+	]
+}
